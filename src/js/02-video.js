@@ -12,8 +12,17 @@ const timeUpdate = data => {
 };
 const onIframePlay = data => {};
 
-player.setCurrentTime(localStorage.getItem(CURRENT_TIME_SET));
-
+const setCurrentTime = time => {
+  player.setCurrentTime(localStorage.getItem(CURRENT_TIME_SET));
+  console.log(`successful return to time ${time} seconds`);
+};
+const checkCurrentTimeLocalStorage = () => {
+  const checkTime = localStorage[CURRENT_TIME_SET];
+  if (checkTime) {
+    setCurrentTime(checkTime);
+  }
+};
+checkCurrentTimeLocalStorage();
 player.on('play', onIframePlay);
 player.on('timeupdate', throttle(timeUpdate, 1000));
 player.off('play', onIframePlay);
