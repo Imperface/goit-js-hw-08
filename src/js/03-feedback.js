@@ -21,6 +21,7 @@ const checkLocalStorage = () => {
 const ofFormSubmit = e => {
   console.log('submit successfully');
   e.preventDefault();
+  console.log(formData);
   console.log(`user email: ${formData.email}`);
   console.log(`user message: ${formData.message}`);
   localStorage.removeItem(REVIEW_DATA);
