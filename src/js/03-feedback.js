@@ -22,6 +22,7 @@ const ofFormSubmit = e => {
   e.preventDefault();
   console.log(formData);
   localStorage.removeItem(REVIEW_DATA);
+  formData = {};
   refs.form.reset();
   console.log('localStorage clearing');
 };
